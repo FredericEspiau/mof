@@ -1,0 +1,5 @@
+#p
+name: String
+
+#s
+<h1>Hello {name} !</h1>

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "My Own Framework",
   "scripts": {
-    "build": "node ./mof/0-compilation/index.js"
+    "build": "node ./src/0-compilation/index.js"
   },
   "repository": {
     "type": "git",

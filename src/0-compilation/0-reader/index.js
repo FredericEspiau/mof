@@ -1,9 +1,9 @@
-const { readFileContent } = require("../utils/file-system-manipulation");
+const { read } = require("../utils/fileSystemManipulation/file");
 
 const mofFile_to_componentCode = function mofFile_to_componentCode(
   pathToRootComponentFile
 ) {
-  return readFileContent(pathToRootComponentFile);
+  return read(pathToRootComponentFile);
 };
 
 module.exports = {

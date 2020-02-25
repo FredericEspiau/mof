@@ -1,11 +1,11 @@
-const { readFileContent } = require("../utils/file-system-manipulation");
+const { read } = require("../utils/fileSystemManipulation/file");
 
 const parsedComponent_to_compiledComponent = function parsedComponent_to_compiledComponent(
   parsedComponent
 ) {
   const html = parsedComponent[0].content;
 
-  const templateContent = readFileContent("./src/1-runtime/index.js");
+  const templateContent = read("./src/1-runtime/index.js");
 
   return templateContent.replace(
     '"insertCodeHere"',

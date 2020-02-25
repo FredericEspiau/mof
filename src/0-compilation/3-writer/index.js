@@ -1,19 +1,15 @@
-const {
-  createNode,
-  deleteNode,
-  doesNodeExist,
-  moveAllFilesOfADirectory,
-  writeFile
-} = require("../utils/file-system-manipulation");
+const directory = require("../utils/fileSystemManipulation/directory");
+const file = require("../utils/fileSystemManipulation/file");
+const node = require("../utils/fileSystemManipulation/node");
 
 const makeInSortToHaveAnEmptyDestionationDirectory = function parsedComponent_to_compiledComponent() {
   const destinationPath = "../dist";
 
-  if (doesNodeExist(destinationPath)) {
-    deleteNode(destinationPath);
+  if (node.doesExist(destinationPath)) {
+    directory.remove(destinationPath);
   }
 
-  createNode(destinationPath);
+  directory.create(destinationPath);
 };
 
 const compiledComponent_to_jsFile = function compiledComponent_to_jsFile(
@@ -21,9 +17,9 @@ const compiledComponent_to_jsFile = function compiledComponent_to_jsFile(
 ) {
   makeInSortToHaveAnEmptyDestionationDirectory();
 
-  moveAllFilesOfADirectory("./src/1-runtime/dist", "./dist");
+  directory.copyAllFiles("./src/1-runtime/dist", "./dist");
 
-  writeFile("./dist/index.js", compiledComponent);
+  file.create("./dist/index.js", compiledComponent);
 };
 
 module.exports = {
